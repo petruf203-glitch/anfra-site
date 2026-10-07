@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ANFRA — Admin</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+body{padding:30px 6%;max-width:1100px;margin:auto}
+.admin-box{border:1px solid #292933;background:#0d0d13;border-radius:20px;padding:25px;margin-top:25px}
+input{background:#101016;border:1px solid #292933;color:#fff;padding:12px;border-radius:10px;margin:5px;width:260px}
+table{width:100%;border-collapse:collapse;margin-top:20px;font-size:12px}
+td,th{padding:12px;border-bottom:1px solid #22222b;text-align:left}
+th{color:#a855f7}
+</style>
+</head>
+<body>
+<div class="brand"><span class="brand-mark">A</span> ANFRA ADMIN</div>
+<div class="admin-box" id="loginBox">
+  <h2>Admin Login</h2>
+  <input id="email" type="email" placeholder="Email">
+  <input id="password" type="password" placeholder="Password">
+  <button class="btn" onclick="login()">LOGIN</button>
+  <p id="msg"></p>
+</div>
+<div class="admin-box" id="dashboard" style="display:none">
+  <h2>Founding 1000</h2>
+  <p><strong id="count">0</strong> / 1000 claimed</p>
+  <table><thead><tr><th>#</th><th>Wallet</th><th>Date</th></tr></thead><tbody id="rows"></tbody></table>
+</div>
+<script>
+const SUPABASE_URL="https://fwdrqxnyrnxoywvexpze.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY="sb_publishable_DZjsjTyU0dAcQoM69Ub2iQ_y2GEtsxe";
+const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
+
+async function login(){
+ const {error}=await db.auth.signInWithPassword({
+   email:document.getElementById('email').value,
+   password:document.getElementById('password').value
+ });
+ document.getElementById('msg').innerText=error?error.message:"Logged in.";
+ if(!error) load();
+}
+async function load(){
+ const {data,error}=await db.from('founding_members').select('*').order('rank');
+ if(error){document.getElementById('msg').innerText=error.message;return}
+ document.getElementById('loginBox').style.display='none';
+ document.getElementById('dashboard').style.display='block';
+ document.getElementById('count').innerText=data.length;
+ document.getElementById('rows').innerHTML=data.map(x=>`<tr><td>#${String(x.rank).padStart(3,'0')}</td><td>${x.wallet}</td><td>${new Date(x.created_at).toLocaleString()}</td></tr>`).join('');
+}
+</script>
+</body>
+</html>
