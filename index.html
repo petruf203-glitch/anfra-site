@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ANFRA — community-driven Solana token built for the long term.">
+  <title>ANFRA — Build. Grow. Together.</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="brand"><span class="brand-mark">A</span> ANFRA</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#community">Community</a>
+      <a href="#anfra-id">ANFRA ID</a>
+    </nav>
+    <a class="btn small" href="https://t.me/ANFRAtothemoon" target="_blank">Join Telegram</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="glow"></div>
+      <div class="hero-content">
+        <div class="eyebrow">SOLANA • COMMUNITY • LONG TERM</div>
+        <h1>Build something<br><span>worth holding.</span></h1>
+        <p>ANFRA is a community-driven Solana project focused on growth, transparency and building a strong ecosystem together.</p>
+        <div class="actions">
+          <a class="btn" href="https://raydium.io/" target="_blank">Buy ANFRA ↗</a>
+          <a class="btn ghost" href="https://t.me/ANFRAtothemoon" target="_blank">Telegram ↗</a>
+        </div>
+        <div class="contract">
+          <span>CONTRACT ADDRESS</span>
+          <code id="ca">BphpFLbusysVvshrz8tB7uuvPMf6qssypve4sUG9vray</code>
+          <button onclick="copyCA()">COPY</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="section-label">01 / ABOUT</div>
+      <div class="grid two">
+        <div>
+          <h2>More than a token.</h2>
+          <p>ANFRA is being built around a simple idea: create a real community first, then grow the project step by step.</p>
+          <p>The goal is not to create a short-lived pump. The goal is to build, communicate openly and give the community a reason to stay involved.</p>
+        </div>
+        <div class="quote">
+          <div class="quote-mark">“</div>
+          <p>I’m here to build the project, not to crash it.</p>
+          <small>— ANFRA Owner</small>
+        </div>
+      </div>
+    </section>
+
+    <section id="tokenomics" class="section dark">
+      <div class="section-label">02 / TOKENOMICS</div>
+      <h2>Simple. Clear. Community focused.</h2>
+      <div class="cards">
+        <div class="card"><strong>1B</strong><span>Total Supply</span></div>
+        <div class="card"><strong>Solana</strong><span>Blockchain</span></div>
+        <div class="card"><strong>ANFRA</strong><span>Token</span></div>
+      </div>
+      <p class="note">Token supply and allocation details can be updated here as the project evolves.</p>
+    </section>
+
+    <section id="roadmap" class="section">
+      <div class="section-label">03 / ROADMAP</div>
+      <h2>Build. Grow. Expand.</h2>
+      <div class="timeline">
+        <div class="phase active"><b>PHASE 01</b><h3>Launch</h3><p>Token launch, website, community channels and initial awareness.</p></div>
+        <div class="phase"><b>PHASE 02</b><h3>Growth</h3><p>Community campaigns, partnerships, visibility and ecosystem development.</p></div>
+        <div class="phase"><b>PHASE 03</b><h3>Community</h3><p>Charity initiatives and community rewards based on project growth.</p></div>
+        <div class="phase"><b>PHASE 04</b><h3>Expansion</h3><p>New utilities, collaborations and long-term ecosystem plans.</p></div>
+      </div>
+    </section>
+
+
+    <section id="anfra-id" class="section id-section">
+      <div class="section-label">04 / ANFRA ID</div>
+      <div class="id-header">
+        <div>
+          <h2>Your wallet.<br><span>Your reputation.</span></h2>
+          <p>Connect your Solana wallet and discover your ANFRA identity, holder level and achievements.</p>
+        </div>
+        <button class="btn" id="connectWalletBtn" onclick="connectWallet()">Connect Wallet ↗</button>
+      </div>
+
+      <div class="id-dashboard" id="idDashboard">
+        <div class="id-top">
+          <div>
+            <span class="id-label">ANFRA ID</span>
+            <strong id="anfraIdNumber">#----</strong>
+          </div>
+          <div class="wallet-status" id="walletStatus">WALLET NOT CONNECTED</div>
+        </div>
+
+        <div class="score-grid">
+          <div class="score-card featured">
+            <span>ANFRA SCORE</span>
+            <strong id="anfraScore">0</strong>
+            <small>Community reputation</small>
+          </div>
+          <div class="score-card">
+            <span>HOLDER LEVEL</span>
+            <strong id="holderLevel">—</strong>
+            <small id="holderHint">Connect your wallet</small>
+          </div>
+          <div class="score-card">
+            <span>ACHIEVEMENTS</span>
+            <strong id="achievementCount">0 / 6</strong>
+            <small>Unlocked</small>
+          </div>
+        </div>
+
+        <div class="id-columns">
+          <div class="id-panel">
+            <div class="panel-title">ACHIEVEMENTS</div>
+            <div class="badges">
+              <div class="badge locked" id="badgeEarly"><b>EARLY</b><span>Early Supporter</span></div>
+              <div class="badge locked" id="badgeHolder"><b>HOLDER</b><span>ANFRA Holder</span></div>
+              <div class="badge locked" id="badgeOG"><b>OG</b><span>OG Holder</span></div>
+              <div class="badge locked" id="badgeDiamond"><b>DIAMOND</b><span>Diamond Hands</span></div>
+              <div class="badge locked" id="badgeBuilder"><b>BUILD</b><span>Community Builder</span></div>
+              <div class="badge locked" id="badgeFounding"><b>001–1000</b><span>Founding 1000</span></div>
+            </div>
+          </div>
+
+          <div class="id-panel">
+            <div class="panel-title">MILESTONES</div>
+            <div class="milestones">
+              <div><span>01</span><p>Joined the ANFRA community</p><b>READY</b></div>
+              <div><span>02</span><p>Reached your first holder milestone</p><b>LOCKED</b></div>
+              <div><span>03</span><p>Become an ANFRA OG</p><b>LOCKED</b></div>
+              <div><span>04</span><p>Founding 1000</p><b>LOCKED</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="id-note">
+        <span>ANFRA ID</span>
+        <p>Your wallet becomes your identity inside the ANFRA ecosystem. More achievements and utilities will be added as the community grows.</p>
+      </div>
+    </section>
+
+    <section id="community" class="section community">
+      <div class="section-label">05 / COMMUNITY</div>
+      <h2>Be early. Build with us.</h2>
+      <p>Follow the project, join the conversation and help shape what ANFRA becomes.</p>
+      <div class="actions center">
+        <a class="btn" href="https://t.me/ANFRAtothemoon" target="_blank">Join Telegram ↗</a>
+        <a class="btn ghost" href="https://x.com/petrufrat?s=11" target="_blank">Follow on X ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand"><span class="brand-mark">A</span> ANFRA</div>
+    <span>Built on Solana • © 2026 ANFRA</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
